@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Summarizer - Smart Learning Assistant</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Video Summarizer</span>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu" id="userMenu">
+                    <button class="login-btn" id="loginBtn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-history"></i> History</h3>
+                </div>
+                <div class="history-list" id="historyList">
+                    <p class="history-empty">Login to see your history</p>
+                </div>
+            </aside>
+
+            <main class="content-area">
+                <div class="hero-section">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Transform Videos</span>
+                        <br>Into Knowledge
+                    </h1>
+                    <p class="hero-subtitle">Summarize any video, generate quizzes, and chat with AI - all in one place</p>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-container">
+                        <i class="fas fa-link input-icon"></i>
+                        <input type="text" id="videoUrl" placeholder="Paste YouTube or video URL here..." class="video-input">
+                        <button class="analyze-btn" id="analyzeBtn">
+                            <i class="fas fa-magic"></i>
+                            <span>Analyze</span>
+                        </button>
+                    </div>
+                    <div class="input-tips">
+                        <span><i class="fab fa-youtube"></i> YouTube</span>
+                        <span><i class="fas fa-video"></i> Vimeo</span>
+                        <span><i class="fas fa-globe"></i> Any Video URL</span>
+                    </div>
+                </div>
+
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="loader">
+                        <div class="loader-circle"></div>
+                        <div class="loader-circle"></div>
+                        <div class="loader-circle"></div>
+                    </div>
+                    <p class="loading-text">Analyzing video with AI...</p>
+                </div>
+
+                <div class="results-section" id="resultsSection">
+                    <div class="result-header">
+                        <h2 id="videoTitle">Video Title</h2>
+                        <div class="result-actions">
+                            <button class="action-btn" id="downloadPdfBtn">
+                                <i class="fas fa-file-pdf"></i>
+                                Download PDF
+                            </button>
+                            <button class="action-btn secondary" id="shareBtn">
+                                <i class="fas fa-share"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="summary">
+                                <i class="fas fa-file-alt"></i>
+                                Summary
+                            </button>
+                            <button class="tab" data-tab="keypoints">
+                                <i class="fas fa-list-check"></i>
+                                Key Points
+                            </button>
+                            <button class="tab" data-tab="quiz">
+                                <i class="fas fa-question-circle"></i>
+                                Quiz
+                            </button>
+                        </div>
+
+                        <div class="tab-content active" id="summaryTab">
+                            <div class="summary-content" id="summaryContent">
+                                <p>Summary will appear here...</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="keypointsTab">
+                            <div class="keypoints-list" id="keypointsList">
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="quizTab">
+                            <div class="quiz-container" id="quizContainer">
+                            </div>
+                            <div class="quiz-score" id="quizScore"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="chat-sidebar" id="chatSidebar">
+                <div class="chat-header">
+                    <h3><i class="fas fa-robot"></i> AI Assistant</h3>
+                    <button class="chat-toggle" id="chatToggle">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message bot">
+                        <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI assistant. Ask me anything about the video or any topic you'd like to learn about!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="chat-input">
+                    <button class="chat-send-btn" id="chatSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-auth="login">Login</button>
+                    <button class="auth-tab" data-auth="register">Register</button>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <h2>Welcome Back!</h2>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                    <div class="auth-error" id="loginError"></div>
+                </form>
+
+                <form class="auth-form hidden" id="registerForm">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Register
+                    </button>
+                    <div class="auth-error" id="registerError"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

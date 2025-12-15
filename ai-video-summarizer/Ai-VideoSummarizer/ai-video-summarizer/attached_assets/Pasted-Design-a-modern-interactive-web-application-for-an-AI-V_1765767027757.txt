@@ -1,0 +1,89 @@
+Design a **modern, interactive web application** for an **AI Video Summarization & Quiz Generation Tool**. The web app should have a **professional yet visually engaging look** suitable for students, teachers, and e-learning platforms. Follow these specifications carefully:
+
+1️⃣ **Overall Style & Theme:**
+- Modern, clean, intuitive UI
+- Colors: #1A73E8 (primary blue), #FFFFFF (white), #F5F5F5 (light grey background), #FF9800 (accent), #4CAF50 (success), #E53935 (error)
+- Typography: Use **Poppins** for headings (bold, clean), **Roboto** for body text (readable)
+- Smooth rounded corners (8px–12px)
+- Soft shadows for cards and buttons (like Google Material style)
+- Animated hover effects on buttons (scale 1.05, shadow intensifies)
+- Subtle micro-interactions for loading, hovering, and button clicks
+- Background: Light gradient (#F5F5F5 → #FFFFFF) with animated subtle abstract shapes moving slowly (like floating bubbles or soft lines)
+- Include modern **SVG icons** for AI, video, quiz, and analytics
+
+2️⃣ **Landing Page / Home Screen:**
+- Header: Logo left, navigation right (Home, Features, Pricing, FAQ, Contact)
+- Hero Section:
+  - Catchy headline: "Transform Any Lecture Into Summaries & Quizzes Instantly"
+  - Subtext: "Paste your video link and let AI generate concise summaries and engaging quizzes automatically."
+  - Animated CTA button: "Generate Summary & Quiz" (hover glow effect)
+  - Illustration on right: Students watching a video on laptop, AI spark or magic effect above screen, glowing quiz cards popping out
+- Hero background: Subtle animated gradient or geometric shapes
+- Optional Lottie animation for AI spark effect
+
+3️⃣ **Video Input Section:**
+- Simple card layout
+- Input field: "Paste Video URL here..." with placeholder text
+- Button: "Analyze Video" (primary blue with subtle hover animation)
+- Tooltip icon: Info about supported video links (YouTube, Vimeo, Zoom recordings)
+- Progress animation: Circular loader with AI spark animation while processing
+- Smooth transition from input → summary view
+
+4️⃣ **Summary Section:**
+- Card layout with clean typography
+- Heading: "AI Summary"
+- Summary text: 3–5 key bullet points, expandable "Read More" toggle
+- Background: White card with soft shadow, subtle animation when content loads
+- Animated highlight on key phrases (yellow glow on hover)
+- Option to **download summary as PDF** (button with hover animation)
+
+5️⃣ **Quiz Generation Section:**
+- Card layout: "Generated Quiz"
+- Each question displayed as a card with:
+  - Question text
+  - Multiple choice options (radio buttons)
+  - Correct answer highlight on selection (green highlight with smooth transition)
+- Include **animated confetti effect** on correct answers (optional small GIF or canvas animation)
+- Button: "Download Quiz" or "Export to PDF" (smooth gradient hover)
+- Responsive design: Cards stack vertically on mobile, grid layout on desktop
+
+6️⃣ **Additional Features Section:**
+- Stats Cards: "Videos Processed", "Questions Generated", "Time Saved"
+- Each card has **icon + animated counter** (numbers counting up on load)
+- Smooth scroll animation to stats
+
+7️⃣ **Footer:**
+- Background: #1A73E8 (primary blue)
+- Text: White, small, readable
+- Links: About, Contact, Privacy Policy, Terms
+- Social icons with hover glow effect (Twitter, LinkedIn, GitHub)
+- Minimal animated background shapes (optional)
+
+8️⃣ **Animations & Micro-Interactions:**
+- Smooth fade-in for sections
+- Hover effects on buttons and cards
+- Subtle motion on background shapes
+- Loader animation when AI processes video (spinning cube or circular waveform)
+- Quiz correct answer: small confetti pop or glow animation
+
+9️⃣ **Fonts, Colors & Style Summary:**
+- Fonts: **Poppins Bold** (headings), **Roboto Regular** (body)
+- Primary Color: #1A73E8
+- Secondary / Accent: #FF9800, #4CAF50, #E53935
+- Background gradient: #F5F5F5 → #FFFFFF
+- Card shadows: soft (#00000020), rounded corners
+- Buttons: animated hover scaling (1.05x) with shadow glow
+- Animations: fade-in, hover scale, background subtle motion
+
+10️⃣ **Responsiveness:**
+- Fully responsive: Mobile, Tablet, Desktop
+- Interactive components adjust layout for smaller screens
+- Mobile: Vertical stacking of hero illustration and text, quiz cards scrollable horizontally
+
+11️⃣ **Optional Fun Details:**
+- AI “spark” or glow icon near summary and quiz
+- Lottie animations for hero illustration
+- Confetti / pop animation on quiz completion
+- Subtle micro-interactions for input focus, button clicks, and card hover
+
+**Goal:** Make this web app **look professional, modern, engaging, and visually impressive**, while clearly demonstrating the **AI Video Summarization + Quiz Generation functionality**. The design should feel **intuitive, futuristic, and trustworthy**, appealing to students, teachers, and e-learning platforms.  

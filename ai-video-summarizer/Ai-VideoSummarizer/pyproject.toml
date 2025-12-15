@@ -1,0 +1,29 @@
+[project]
+name = "ai-video-summarizer"
+version = "1.0.0"
+description = "AI Video Summarizer with Quiz Generation and Chat"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "flask",
+    "flask-cors",
+    "flask-login",
+    "flask-sqlalchemy",
+    "yt-dlp",
+    "nltk",
+    "python-dotenv",
+    "requests",
+    "openai",
+    "gunicorn",
+    "werkzeug",
+    "fpdf2",
+    "psycopg2-binary>=2.9.11",
+    "fpdf>=1.7.2",
+]
+
+[[tool.uv.index]]
+explicit = true
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]

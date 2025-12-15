@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Summarizer - Transform Lectures into Summaries & Quizzes</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎬%3C/text%3E%3C/svg%3E">
+</head>
+<body class="landing-page">
+    <div class="animated-bg">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header class="landing-header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#1A73E8"/>
+                    <path d="M16 14L28 20L16 26V14Z" fill="white"/>
+                    <circle cx="32" cy="10" r="6" fill="#FF9800"/>
+                    <path d="M30 10L34 10M32 8L32 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                AI Video Summarizer
+            </a>
+            <div class="nav-actions">
+                <a href="{{ url_for('replit_auth.login') }}" class="btn btn-primary">Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="landing-main">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text animate-fade-in">
+                    <span class="hero-badge">Powered by AI</span>
+                    <h1>Transform Any Lecture Into<br><span class="gradient-text">Summaries & Quizzes</span> Instantly</h1>
+                    <p class="hero-description">Paste your YouTube video link and let AI generate comprehensive summaries with headings, definitions, examples, and interactive quizzes. Perfect for students, teachers, and lifelong learners.</p>
+                    <div class="hero-cta">
+                        <a href="{{ url_for('replit_auth.login') }}" class="btn btn-large btn-primary">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            Get Started Free
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">10K+</span>
+                            <span class="stat-label">Videos Processed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">50K+</span>
+                            <span class="stat-label">Quizzes Generated</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">100K+</span>
+                            <span class="stat-label">Hours Saved</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-illustration animate-float">
+                    <div class="illustration-card card-1">
+                        <div class="card-icon summary-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6C5 2 4 3 4 4V20C4 21 5 22 6 22H18C19 22 20 21 20 20V8L14 2Z"/>
+                                <path d="M14 2V8H20"/>
+                                <path d="M8 13H16M8 17H12"/>
+                            </svg>
+                        </div>
+                        <h4>Smart Summaries</h4>
+                        <p>AI-powered explanations with definitions & examples</p>
+                    </div>
+                    <div class="illustration-card card-2">
+                        <div class="card-icon quiz-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9C9.3 8.4 9.7 7.9 10.2 7.6C11.4 6.9 12.8 7.1 13.7 8C14.6 8.9 14.6 10.1 14 11.2C13.4 12.3 12 12.5 12 13.5"/>
+                                <circle cx="12" cy="17" r="1"/>
+                            </svg>
+                        </div>
+                        <h4>Quiz Generation</h4>
+                        <p>Comprehensive quizzes to test your knowledge</p>
+                    </div>
+                    <div class="illustration-card card-3">
+                        <div class="card-icon chat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4>LORD NIL AI</h4>
+                        <p>Your personal AI assistant for learning</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-slide-up">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="14" rx="2"/>
+                            <path d="M10 9L14 12L10 15V9Z"/>
+                        </svg>
+                    </div>
+                    <h3>Video Analysis</h3>
+                    <p>Support for YouTube and other platforms. Just paste the link and let AI extract all the content.</p>
+                </div>
+                <div class="feature-card animate-slide-up delay-1">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6C5 2 4 3 4 4V20C4 21 5 22 6 22H18C19 22 20 21 20 20V8L14 2Z"/>
+                            <path d="M14 2V8H20"/>
+                            <path d="M8 13H16M8 17H12"/>
+                        </svg>
+                    </div>
+                    <h3>Detailed Summaries</h3>
+                    <p>Get comprehensive summaries with headings, definitions, examples, and key takeaways.</p>
+                </div>
+                <div class="feature-card animate-slide-up delay-2">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9C9.3 8.4 9.7 7.9 10.2 7.6C11.4 6.9 12.8 7.1 13.7 8C14.6 8.9 14.6 10.1 14 11.2C13.4 12.3 12 12.5 12 13.5"/>
+                            <circle cx="12" cy="17" r="1"/>
+                        </svg>
+                    </div>
+                    <h3>Smart Quizzes</h3>
+                    <p>Auto-generated quizzes with multiple questions covering all topics from the video.</p>
+                </div>
+                <div class="feature-card animate-slide-up delay-3">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Meet LORD NIL - your personal AI assistant to help you understand and learn better.</p>
+                </div>
+                <div class="feature-card animate-slide-up delay-4">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15V19C21 20 20 21 19 21H5C4 21 3 20 3 19V15"/>
+                            <path d="M7 10L12 15L17 10"/>
+                            <path d="M12 15V3"/>
+                        </svg>
+                    </div>
+                    <h3>PDF Downloads</h3>
+                    <p>Download your summaries and quizzes as beautiful PDF documents.</p>
+                </div>
+                <div class="feature-card animate-slide-up delay-5">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Fast & Accurate</h3>
+                    <p>Powered by advanced AI for quick, accurate, and comprehensive results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Learning?</h2>
+                <p>Join thousands of students and educators using AI Video Summarizer</p>
+                <a href="{{ url_for('replit_auth.login') }}" class="btn btn-large btn-white">
+                    Get Started Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" fill="white"/>
+                    <path d="M16 14L28 20L16 26V14Z" fill="#1A73E8"/>
+                </svg>
+                AI Video Summarizer
+            </div>
+            <p>&copy; 2024 AI Video Summarizer. Made with AI for learning.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/landing.js"></script>
+</body>
+</html>

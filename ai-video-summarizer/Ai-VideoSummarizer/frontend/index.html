@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Summarizer & Quiz Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Video Summarizer</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="cta-button" onclick="startDemo()">
+                    <i class="fas fa-play"></i>
+                    Try Demo
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Any Lecture Into Summaries & Quizzes Instantly</h1>
+                <p>Paste your video link and let AI generate concise summaries and engaging quizzes automatically. Perfect for students, teachers, and e-learning platforms.</p>
+                <button class="cta-button" onclick="scrollToInput()">
+                    <i class="fas fa-magic"></i>
+                    Generate Summary & Quiz
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg" alt="AI Video Processing" class="hero-illustration">
+                <div class="ai-spark">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Input Section -->
+    <section class="video-input-section" id="input">
+        <div class="container">
+            <div class="section-title">
+                <i class="fas fa-video"></i>
+                <h2>Upload or Paste Video URL</h2>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="videoUrl" class="url-input" placeholder="Paste YouTube, Vimeo, or Zoom recording link here...">
+                <button class="cta-button" onclick="processVideo()" id="processBtn">
+                    <i class="fas fa-play-circle"></i>
+                    Analyze Video
+                </button>
+            </div>
+
+            <div class="or-divider">OR</div>
+
+            <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drag & drop your video file here</p>
+                <span>Browse Files</span>
+                <input type="file" id="fileInput" accept="video/*" style="display: none;" onchange="handleFileUpload(this.files)">
+            </div>
+
+            <div class="supported-platforms">
+                <p><i class="fas fa-info-circle"></i> Supports: YouTube, Vimeo, MP4, MOV, AVI files (up to 500MB)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loader"></div>
+            <h3>AI is processing your video...</h3>
+            <p>Generating transcript, summary, and quiz questions</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Container -->
+    <div class="container" id="resultsContainer" style="display: none;">
+        <div class="results-container">
+            <!-- Summary Card -->
+            <div class="summary-card">
+                <div class="section-title">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>AI Summary</h2>
+                </div>
+                <div class="summary-content" id="summaryContent">
+                    <!-- Summary will be populated here -->
+                </div>
+                <button class="download-btn" onclick="downloadSummary()">
+                    <i class="fas fa-download"></i>
+                    Download Summary (PDF)
+                </button>
+            </div>
+
+            <!-- Quiz Card -->
+            <div class="quiz-card">
+                <div class="section-title">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Generated Quiz</h2>
+                </div>
+                <div class="quiz-content" id="quizContent">
+                    <!-- Quiz will be populated here -->
+                </div>
+                <button class="download-btn" onclick="downloadQuiz()">
+                    <i class="fas fa-download"></i>
+                    Download Quiz (PDF)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-title" style="justify-content: center; margin-bottom: 40px;">
+                <i class="fas fa-chart-line"></i>
+                <h2>Our Impact</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="stat-number" id="videosProcessed">1,247</div>
+                    <div class="stat-text">Videos Processed</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="stat-number" id="questionsGenerated">8,592</div>
+                    <div class="stat-text">Questions Generated</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" id="timeSaved">2,154</div>
+                    <div class="stat-text">Hours Saved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI Video Summarizer</h3>
+                    <p>Revolutionizing education with AI-powered video analysis and quiz generation.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@ai-summarizer.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 AI Video Summarizer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

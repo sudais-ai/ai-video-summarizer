@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Summarizer - Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎬%3C/text%3E%3C/svg%3E">
+</head>
+<body class="dashboard-page">
+    <div class="animated-bg">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header class="dashboard-header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#1A73E8"/>
+                    <path d="M16 14L28 20L16 26V14Z" fill="white"/>
+                    <circle cx="32" cy="10" r="6" fill="#FF9800"/>
+                    <path d="M30 10L34 10M32 8L32 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                AI Video Summarizer
+            </a>
+            <div class="nav-actions">
+                <div class="user-info">
+                    {% if user.profile_image_url %}
+                    <img src="{{ user.profile_image_url }}" alt="Profile" class="user-avatar">
+                    {% endif %}
+                    <span class="user-name">{{ user.first_name or user.email or 'User' }}</span>
+                </div>
+                <a href="{{ url_for('replit_auth.logout') }}" class="btn btn-outline">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <section class="welcome-section animate-fade-in">
+            <h1>Welcome back, {{ user.first_name or 'Student' }}!</h1>
+            <p>Transform your learning experience with AI-powered video summaries and quizzes</p>
+        </section>
+
+        <section class="quick-actions">
+            <a href="/app" class="action-card primary animate-slide-up">
+                <div class="action-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="14" rx="2"/>
+                        <path d="M10 9L14 12L10 15V9Z"/>
+                    </svg>
+                </div>
+                <h3>Summarize Video</h3>
+                <p>Paste a YouTube link and get instant AI summaries with quizzes</p>
+                <span class="action-cta">Get Started</span>
+            </a>
+        </section>
+
+        <section class="features-overview">
+            <h2>What You Can Do</h2>
+            <div class="features-mini-grid">
+                <div class="feature-mini animate-slide-up delay-1">
+                    <div class="feature-mini-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6C5 2 4 3 4 4V20C4 21 5 22 6 22H18C19 22 20 21 20 20V8L14 2Z"/>
+                            <path d="M8 13H16M8 17H12"/>
+                        </svg>
+                    </div>
+                    <h4>Detailed Summaries</h4>
+                    <p>With headings, definitions, and examples</p>
+                </div>
+                <div class="feature-mini animate-slide-up delay-2">
+                    <div class="feature-mini-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9C9.3 8.4 9.7 7.9 10.2 7.6"/>
+                        </svg>
+                    </div>
+                    <h4>Smart Quizzes</h4>
+                    <p>15+ questions covering all topics</p>
+                </div>
+                <div class="feature-mini animate-slide-up delay-3">
+                    <div class="feature-mini-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h4>LORD NIL AI</h4>
+                    <p>Your personal learning assistant</p>
+                </div>
+                <div class="feature-mini animate-slide-up delay-4">
+                    <div class="feature-mini-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15V19C21 20 20 21 19 21H5C4 21 3 20 3 19V15"/>
+                            <path d="M7 10L12 15L17 10"/>
+                        </svg>
+                    </div>
+                    <h4>PDF Downloads</h4>
+                    <p>Save your work for later</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer">
+        <p>&copy; 2024 AI Video Summarizer. Made with AI for learning.</p>
+    </footer>
+
+    <script src="/static/js/landing.js"></script>
+</body>
+</html>
